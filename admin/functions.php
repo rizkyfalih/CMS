@@ -1,12 +1,11 @@
 <?php
 
-function confirm($result){
+function confirmQuery($result){
   global $connection;
   if (!$result) {
     die("Failed" . mysqli_error($connection));
   }
 
-  return $result;
 }
 
 
