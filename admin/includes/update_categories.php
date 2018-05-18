@@ -24,6 +24,8 @@
       if(!$update_query){
         die("Query Failed" . mysqli_error($connection));
       }
+
+      header("Location: categories.php");
     }
 
      ?>

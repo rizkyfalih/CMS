@@ -49,7 +49,7 @@
         $query .= "post_status = '{$post_status}', ";
         $query .= "post_tags = '{$post_tags}', ";
         $query .= "post_content = '{$post_content}', ";
-        $query .= "post_image = '{$post_image}', ";
+        $query .= "post_image = '{$post_image}' ";
         $query .= "WHERE post_id = {$the_post_id} ";
 
         $update_post = mysqli_query($connection, $query);
@@ -69,7 +69,7 @@
   </div>
 
   <div class="form-group">
-    <select name="post_category" id="">
+    <select name="post_category_id" id="">
 
         <?php 
             $query = "SELECT * FROM categories";
