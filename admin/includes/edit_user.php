@@ -55,9 +55,9 @@
         $query .= "user_password = '{$user_password}' ";
         $query .= "WHERE user_id = {$the_user_id} ";
 
-        $update_post = mysqli_query($connection, $query);
+        $update_user = mysqli_query($connection, $query);
 
-        confirmQuery($update_post);
+        confirmQuery($update_user);
         header("Location: users.php"); //header
     }
 
