@@ -29,8 +29,6 @@
                   $post_status = $row['post_status'];
 
                   if($post_status !== 'published' ){
-                    echo "<h1>" . "NO POST" . "</h1>";
-                  } else {
 
                   ?>
 
