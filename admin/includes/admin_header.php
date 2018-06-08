@@ -1,4 +1,4 @@
-<?php ob_start(); ?>> //for header fuction
+<?php ob_start(); ?> 
 <?php include "../includes/db.php" ?>
 <?php include "functions.php" ?>
 <?php session_start(); ?>
@@ -43,6 +43,9 @@
     <![endif]-->
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+    <script>tinymce.init({ selector:'textarea' });</script>
 
 </head>
 

@@ -44,7 +44,7 @@
   </div>
 
   <div class="form-group">
-    <select name="user_role" id="">
+    <select class="form-control" name="user_role" id="">
       <option value="subscriber">Select Option</option>
       <option value="admin">Admin</option>
       <option value="subscriber">subscriber</option>
