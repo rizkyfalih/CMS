@@ -46,16 +46,8 @@
         //     }
         // }
 
-        $query = "SELECT randSalt FROM users";
-        $select_randsalt_query = mysqli_query($connection, $query);
 
-        if(!$select_randsalt_query) {
-            die("Query Failed ". myqsli_error($connection));
-        }
-
-        $row = mysqli_fetch_array($select_randsalt_query);
-        $salt = $row['randSalt'];
-        $hashed_password = crypt($user_password, $salt);
+        $hashed_password = password_hash($user_password, PASSWORD_BCRYPT, array('cost' => 10));
 
         $query = "UPDATE users SET ";
         $query .= "user_firstname = '{$user_firstname}', ";
@@ -70,6 +62,9 @@
 
         confirmQuery($update_user);
         header("Location: users.php"); //header
+
+
+        
     }
 
 ?>
@@ -114,8 +109,8 @@
     </div>
 
         <div class="form-group">
-        <label for="user_password">Email</label>
-        <input value="<?php echo $user_password; ?>" type="password" class="form-control" name="user_password">
+        <label for="user_password">Password</label>
+        <input value="" type="password" class="form-control" name="user_password">
     </div>
 
     <!-- <div class="form-group">
