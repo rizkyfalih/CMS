@@ -8,6 +8,13 @@
         $email  = $_POST['email'];
         $password = $_POST['password'];
 
+        $to = $email;
+        $subject = "My subject";
+        $txt = "Hello world!";
+        $headers = "From: CMS@example.com";
+        
+        mail($to,$subject,$txt,$headers);
+
         if(!empty($username) && !empty($email) && !empty($password)){
 
             $username = mysqli_real_escape_string($connection, $username);
