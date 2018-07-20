@@ -14,17 +14,6 @@
             $username = mysqli_real_escape_string($connection, $username);
             $email = mysqli_real_escape_string($connection, $email);
             $password = mysqli_real_escape_string($connection, $password);
-
-            $to      = $email;
-            $subject = 'the subject';
-            $message = 'hello';
-            $headers = array(
-                'From' => 'webmaster@example.com',
-                'Reply-To' => 'webmaster@example.com',
-                'X-Mailer' => 'PHP/' . phpversion()
-            );
-
-            mail($to, $subject, $message, $headers);
     
             $password = password_hash($password, PASSWORD_BCRYPT, array('cost' => 12));
     
