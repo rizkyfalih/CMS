@@ -23,9 +23,17 @@
                 $view_query = "UPDATE posts SET post_views_count = post_views_count + 1 WHERE post_id = $the_post_id";
                 $send_query = mysqli_query($connection, $view_query);
 
-                $query = "SELECT * FROM posts WHERE post_id = $the_post_id";
+                if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == 'admin'){
+                    $query = "SELECT * FROM posts WHERE post_id = '$the_post_id'";
+                } else {
+                    $query = "SELECT * FROM posts WHERE post_id = '$the_post_id' AND post_status = 'published'";
+                }
+
                 $select_all_posts_query = mysqli_query($connection, $query);
 
+                if(mysqli_num_rows($select_all_posts_query) < 1){
+                    echo "<h1 class='text-center'>No Posts Available</h1>";
+                } else {
                 while($row = mysqli_fetch_assoc($select_all_posts_query)){
                   $post_title = $row['post_title'];
                   $post_author = $row['post_author'];
@@ -36,8 +44,7 @@
                   ?>
 
                   <h1 class="page-header">
-                      Page Heading
-                      <small>Secondary Text</small>
+                      Post
                   </h1>
 
                   <!-- First Blog Post -->
@@ -55,9 +62,7 @@
 
                   <hr>
 
-                <?php } } else {
-                    header("Location: index.php");
-                }
+                <?php } 
                  ?>
 
 
@@ -145,7 +150,9 @@
                     </div>
                 </div>
 
-                <?php } ?>
+                <?php } } } else {
+                    header("Location: index.php");
+                } ?>
 
 
 
