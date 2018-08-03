@@ -1,5 +1,7 @@
 <?php
 
+ob_start();
+
 // Local Database
 // $db['db_host'] = "localhost";
 // $db['db_user'] = "root";
