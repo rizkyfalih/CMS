@@ -36,15 +36,17 @@
 
   users_online();
 
-
   function confirmQuery($result){
     global $connection;
     if (!$result) {
       die("Failed" . mysqli_error($connection));
     }
-
   }
 
+  function escape($string){
+    global $connection;
+    return mysqli_real_escape_string($connection, trim($string));
+  }
 
   function insert_categories(){
     global $connection;
@@ -53,11 +55,11 @@
       if($cat_title == "" || empty($cat_title)){
         echo "This field should not empty";
       }else {
-        $query = "INSERT INTO categories(cat_title) ";
-        $query .= "VALUE('{$cat_title}') ";
+        $stmt = mysqli_prepare($connection, "INSERT INTO categories(cat_title) VALUES(?) ");
+        mysqli_stmt_bind_param($stmt, 's', $cat_title);
+        mysqli_stmt_execute($stmt);
 
-        $create_category_query = mysqli_query($connection,$query);
-        if(!$create_category_query){
+        if(!$stmt){
           die('QUERY FAILED' . mysqli_error($connection));
         }
       }
