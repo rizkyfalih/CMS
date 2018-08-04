@@ -49,7 +49,7 @@
 
       <?php
       $query = "SELECT * FROM categories";
-      $select_categorise_sidebar = mysqli_query($connection, $query);
+      $select_categorise_sidebar = mysqli_query($connection, $query) or die(mysqli_error());
 
       ?>
 
@@ -58,12 +58,16 @@
             <div class="col-lg-12">
                 <ul class="list-unstyled">
                   <?php
-                    while($row = mysqli_fetch_assoc($select_categorise_sidebar)){
+                    // while($row = mysqli_fetch_assoc($select_categorise_sidebar)){
+                    //     $cat_id = $row['cat_id'];
+                    //     $cat_title = $row['cat_title'];
+                    // echo "<li><a href= 'category.php?category=$cat_id'>{$cat_title}</a></li>";
+                    // }
+                    while ($row = $select_categorise_sidebar->fetch_assoc()) {
                         $cat_id = $row['cat_id'];
                         $cat_title = $row['cat_title'];
-                    echo "<li><a href= 'category.php?category=$cat_id'>{$cat_title}</a></li>";
+                        echo "<li><a href= 'category.php?category=$cat_id'>{$cat_title}</a></li>";;
                     }
-
                    ?>
                 </ul>
             </div>

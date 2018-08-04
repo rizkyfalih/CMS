@@ -52,15 +52,14 @@ require 'vendor/autoload.php';
             $mail->Port = 587;                                    // TCP port to connect to
 
             //Recipients
-            $mail->setFrom("no-reply@gmail.com");
-            $mail->addAddress('rizkyfalihpridyandhika@ymail.com');               // Name is optional
+            $mail->setFrom($header);
+            $mail->addAddress('rizkyfalihpridyandhika@gmail.com');               // Name is optional
 
             //Content
             $mail->isHTML(true);                                  // Set email format to HTML
-            $mail->Subject = 'Here is the subject';
-            $mail->Body    = 'body';
-            $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-
+            $mail->Subject = $subject;
+            $mail->Body    = $body;
+           
             $mail->send();
             echo 'Message has been sent';
         } catch (Exception $e) {
