@@ -38,7 +38,7 @@ require 'vendor/autoload.php';
     }
     }
 
-    function contactMail($header, $body, $subject){
+    function contactMail($header, $subject, $body){
         $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
         try {
             //Server settings
