@@ -13,7 +13,7 @@ ob_start();
 
 $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
-if(!$url){
+if($url){
   $db['db_host'] = $url["host"];
   $db['db_user'] = $url["user"];
   $db['db_pass'] = $url["pass"];
