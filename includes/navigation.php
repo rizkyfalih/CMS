@@ -43,7 +43,7 @@
                ?>
 
                 <li>
-                    <a href="admin">Admin</a>
+                    <a href="admin/index.php">Admin</a>
                 </li>
                 <li class='<?php echo $registration_class; ?>'>
                     <a href="registration.php">Registration</a>
