@@ -218,7 +218,7 @@ function login_user($username, $password){
         $_SESSION['lastname'] = $db_user_lastname;
         $_SESSION['user_role'] = $db_user_role;
         
-        return header("Location: /CMS/admin");
+        return header("Location: admin");
     } else {
         echo "Gagal";
     }
